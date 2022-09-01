@@ -1,0 +1,59 @@
+.header {
+  position: relative;
+  &__text {
+    position: absolute;
+    z-index: 1;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-top: $base-size * 6;
+    h1 {
+      margin-left: $base-size * 3;
+    }
+    h2 {
+      text-align: center;
+      justify-items: center;
+    }
+  }
+  &__wrapper {
+    position: relative;
+    height: 700px;
+    background-image: url(https://i.im.ge/2022/09/01/O3XHlp.background.jpg);
+    background-size: 100% 100%;
+    background-position: center center;
+    animation: shrink 15s infinite alternate;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  @keyframes shrink {
+    0% {
+      background-size: 100% 100%;
+    }
+    100% {
+      background-size: 105% 105%;
+    }
+  }
+  &__wrapper:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, transparent 60%, $color-dark 100%);
+  }
+}
+
+.main-nav {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+
+  a {
+    color: $color-light;
+    font-size: $base-size * 1.5;
+    text-decoration: none;
+    margin: ($base-size * 4);
+  }
+}

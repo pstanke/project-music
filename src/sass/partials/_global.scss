@@ -6,15 +6,10 @@
 
 body {
   margin: 0;
-  background: black;
+  background-color: $color-dark;
   font-family: $font-text;
-  font-size: 14px;
+  color: $color-light;
+  font-size: $base-size;
   line-height: 1.7;
   font-weight: $font-normal;
-}
-
-.container {
-  max-width: 100px;
-  margin: 0 auto;
-  padding: 0 20px;
 }
