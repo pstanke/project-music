@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Music</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;900&display=swap"
       rel="stylesheet"
     />
+
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
@@ -23,10 +23,30 @@
       </div>
       <div class="header__wrapper"></div>
     </header>
+
     <div class="main-nav">
       <a href="#home">Home</a>
       <a href="#search">Search</a>
       <a href="#discover">Discover</a>
     </div>
+
+    <div id="pages">
+      <section id="home">
+        <div class="home-wrapper container"></div>
+      </section>
+      <section id="search">
+        <div class="search-wrapper container"></div>
+      </section>
+      <section id="discover">
+        <div class="discover-wrapper container"></div>
+      </section>
+    </div>
+
+    <script id="template-home" type="text/x-handlebars-template"></script>
+    <script id="template-search" type="text/x-handlebars-template"></script>
+    <script id="template-discover" type="text/x-handlebars-template"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.0/handlebars.min.js"></script>
+
+    <script src="js/app.js" type="module"></script>
   </body>
 </html>
