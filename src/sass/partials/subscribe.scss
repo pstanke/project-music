@@ -1,0 +1,84 @@
+#subscribe {
+  position: relative;
+  height: 700px;
+  background-image: url(../images/subscribe.jpg);
+  background-size: 100% 100%;
+  background-position: center center;
+
+  &__title {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: $color-white;
+    font-size: $base-size * 5.2;
+    letter-spacing: $base-size;
+    font-weight: $font-light;
+
+    span {
+      font-weight: bold;
+    }
+  }
+
+  &__artist {
+    img {
+      position: absolute;
+      top: 40%;
+      left: 50%;
+      transform: translateY(-50%);
+      width: 350px;
+    }
+
+    .new {
+      position: absolute;
+      top: 75%;
+      left: 76%;
+      transform: translate(-50%, -50%);
+      font-size: $base-size * 2;
+      color: $color-white;
+      letter-spacing: $base-size * 0.5;
+      font-weight: $font-bold;
+    }
+    .only {
+      position: absolute;
+      top: 80%;
+      left: 67%;
+      transform: translate(-50%, -50%);
+      font-size: $base-size * 2;
+      color: $color-white;
+      letter-spacing: $base-size * 0.5;
+      font-weight: $font-bold;
+    }
+
+    .name {
+      color: $color-white;
+      font-size: $base-size * 4.5;
+      letter-spacing: $base-size;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translateY(-50%);
+      font-weight: $font-bold;
+    }
+    .surname {
+      color: $color-white;
+      font-size: $base-size * 4.5;
+      letter-spacing: $base-size;
+      position: absolute;
+      top: 60%;
+      left: 57%;
+      transform: translateY(-50%);
+      font-weight: $font-bold;
+      span {
+        color: $color-first;
+      }
+    }
+  }
+
+  &__now {
+    position: absolute;
+    top: 58%;
+    left: 28%;
+    transform: translate(-50%, -50%);
+  }
+}

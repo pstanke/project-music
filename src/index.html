@@ -9,8 +9,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700;900&display=swap"
       rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/gh/greghub/green-audio-player/dist/css/green-audio-player.min.css"
     />
 
     <link rel="stylesheet" href="css/style.css" />
@@ -25,9 +30,9 @@
     </header>
 
     <div class="main-nav">
-      <a href="#home">Home</a>
-      <a href="#search">Search</a>
-      <a href="#discover">Discover</a>
+      <a href="#home">HOME</a>
+      <a href="#search">SEARCH</a>
+      <a href="#discover">DISCOVER</a>
     </div>
 
     <div id="pages">
@@ -42,9 +47,39 @@
       </section>
     </div>
 
-    <script id="template-home" type="text/x-handlebars-template"></script>
+    <script id="template-home" type="text/x-handlebars-template">
+      <div id='song-list' class='song-list container'></div>
+      <section id='subscribe'>
+        <div id='subscribe__title'>SUBSCRIBE <span>NOW</span></div>
+        <div id='subscribe__artist'>
+          <img src='images/artist.jpg' />
+          <div class='new'>NEW ALBUM</div>
+          <div class='only'>Avaliable only for subscribers</div>
+          <div class='name'>Dean</div>
+          <div class='surname'>Hen<span>son</span></div>
+        </div>
+
+        <div><a class='btn' id='subscribe__now' href='#join'>JOIN NOW</a></div>
+      </section>
+    </script>
     <script id="template-search" type="text/x-handlebars-template"></script>
     <script id="template-discover" type="text/x-handlebars-template"></script>
+    <script id="template-menu-song" type="text/x-handlebars-template">
+      <article class='song'>
+        <h4 class='song__title'>{{title}}</h4>
+        <div id='song-{{id}}' class='player'>
+          <audio>
+            <source src='../vendor/songs/{{filename}}' />
+          </audio>
+        </div>
+        <div class='song__info'>
+          <div class='song__categories'>Categories: {{categories}} </div>
+          <div class='song__ranking'>#{{ranking}} in the ranking</div>
+        </div>
+      </article>
+    </script>
+    <footer>All rights reserved</footer>
+    <script src="https://cdn.jsdelivr.net/gh/greghub/green-audio-player/dist/js/green-audio-player.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.0/handlebars.min.js"></script>
 
     <script src="js/app.js" type="module"></script>

@@ -1,7 +1,8 @@
-import { select, classNames } from './settings.js';
+import { select, classNames, settings } from './settings.js';
 import Home from './components/Home.js';
 import Search from './components/Search.js';
 import Discover from './components/Discover.js';
+import Song from './components/song.js';
 const app = {
   initHome: function () {
     const thisApp = this;
@@ -77,10 +78,42 @@ const app = {
       );
     }
   },
+  initMenu: function () {
+    const thisApp = this;
+    console.log('thisApp.data:', thisApp.data);
+
+    for (let songData in thisApp.data.songs) {
+      new Song(thisApp.data.songs[songData].id, thisApp.data.songs[songData]);
+    }
+    // const testProduct = new Product();
+    // console.log('testProduct:', testProduct);
+  },
+
+  initData: function () {
+    const thisApp = this;
+
+    thisApp.data = {};
+    const url = settings.db.url + '/' + settings.db.songs;
+    fetch(url)
+      .then(function (rawResponse) {
+        return rawResponse.json();
+      })
+      .then(function (parsedResponse) {
+        console.log('parsedResponse:', parsedResponse);
+        /* save parsedResponse as thisApp.data.songs*/
+        thisApp.data.songs = parsedResponse;
+        /* execute initMenu method*/
+        thisApp.initMenu();
+      });
+    console.log('thisApp.data', JSON.stringify(thisApp.data));
+  },
+
   init: function () {
     const thisApp = this;
 
     thisApp.initPages();
+
+    thisApp.initData();
 
     thisApp.initHome();
 

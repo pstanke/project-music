@@ -23,3 +23,20 @@ body {
     display: block;
   }
 }
+
+.btn {
+  display: inline-block;
+  border-radius: $radius * 2;
+  background-color: $color-first;
+  border: none;
+  color: $color-white;
+  text-align: center;
+  font-size: $base-size * 1.6;
+  padding: $base-size * 1.8;
+  letter-spacing: $base-size * 0.5;
+  font-weight: bolder;
+
+  cursor: pointer;
+
+  text-decoration: none;
+}

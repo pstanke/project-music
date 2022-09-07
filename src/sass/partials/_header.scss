@@ -22,9 +22,9 @@
   &__wrapper {
     position: relative;
     height: 700px;
-    background-image: url(https://i.im.ge/2022/09/01/O3XHlp.background.jpg);
+    background-image: url(../images/background.jpg);
     background-size: 100% 100%;
-    background-position: center center;
+    background-position: 51% center;
     animation: shrink 15s infinite alternate;
     display: flex;
     align-items: center;
@@ -36,7 +36,7 @@
     }
 
     100% {
-      background-size: 105% 105%;
+      background-size: 102% 102%;
     }
   }
 
@@ -61,9 +61,10 @@
     font-size: $base-size * 1.5;
     text-decoration: none;
     margin: ($base-size * 4);
+    letter-spacing: 2px;
 
     &.active {
-      color: $color-bright;
+      color: $color-white;
     }
   }
 }

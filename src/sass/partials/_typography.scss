@@ -1,13 +1,26 @@
 h1 {
-  color: $color-bright;
+  color: $color-white;
   font-size: $base-size * 11;
   letter-spacing: $base-size * 5.5;
   margin: 0;
+  font-weight: bold;
 }
 
 h2 {
-  color: $color-bright;
+  color: $color-white;
   font-size: $base-size * 2;
   margin: 0;
   letter-spacing: $base-size * 0.8;
+}
+
+.gap-progress {
+  background-color: $color-first;
+}
+
+footer {
+  color: $color-white;
+  display: flex;
+  justify-content: center;
+  letter-spacing: 2px;
+  margin: $base-size;
 }
