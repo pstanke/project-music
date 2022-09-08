@@ -8,21 +8,21 @@ const app = {
     const thisApp = this;
 
     const homeElem = document.querySelector(select.containerOf.home);
-    console.log('homeElem', homeElem);
+    // console.log('homeElem', homeElem);
     thisApp.home = new Home(homeElem);
   },
   initSearch: function () {
     const thisApp = this;
 
     const searchElem = document.querySelector(select.containerOf.search);
-    console.log('searchElem', searchElem);
+    // console.log('searchElem', searchElem);
     thisApp.search = new Search(searchElem);
   },
   initDiscover: function () {
     const thisApp = this;
 
     const discoverElem = document.querySelector(select.containerOf.discover);
-    console.log('discoverElem', discoverElem);
+    // console.log('discoverElem', discoverElem);
     thisApp.discover = new Discover(discoverElem);
   },
 
@@ -80,13 +80,11 @@ const app = {
   },
   initMenu: function () {
     const thisApp = this;
-    console.log('thisApp.data:', thisApp.data);
+    // console.log('thisApp.data:', thisApp.data);
 
     for (let songData in thisApp.data.songs) {
       new Song(thisApp.data.songs[songData].id, thisApp.data.songs[songData]);
     }
-    // const testProduct = new Product();
-    // console.log('testProduct:', testProduct);
   },
 
   initData: function () {
@@ -99,13 +97,13 @@ const app = {
         return rawResponse.json();
       })
       .then(function (parsedResponse) {
-        console.log('parsedResponse:', parsedResponse);
+        // console.log('parsedResponse:', parsedResponse);
         /* save parsedResponse as thisApp.data.songs*/
         thisApp.data.songs = parsedResponse;
         /* execute initMenu method*/
         thisApp.initMenu();
       });
-    console.log('thisApp.data', JSON.stringify(thisApp.data));
+    // console.log('thisApp.data', JSON.stringify(thisApp.data));
   },
 
   init: function () {
