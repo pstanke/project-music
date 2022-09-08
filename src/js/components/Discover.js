@@ -6,7 +6,6 @@ class Discover {
 
     thisDiscover.render(element);
     thisDiscover.getRandomSong();
-    // thisDiscover.initPlugin();
   }
   render(element) {
     const thisDiscover = this;
@@ -48,7 +47,7 @@ class Discover {
 
         // eslint-disable-next-line no-undef
         GreenAudioPlayer.init({
-          // selector: parsedResponse.item,
+          selector: `#song-${item.id}`,
           stopOthersOnPlay: true,
         });
       });
