@@ -1,44 +1,12 @@
 .header {
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url(../images/background.jpg);
+  background-size: 100% 100%;
 
-  &__text {
-    position: absolute;
-    z-index: 1;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    margin-top: $base-size * 6;
-
-    h1 {
-      margin-left: $base-size * 3;
-    }
-
-    h2 {
-      text-align: center;
-      justify-items: center;
-    }
-  }
-
-  &__wrapper {
-    position: relative;
-    height: 700px;
-    background-image: url(../images/background.jpg);
-    background-size: 100% 100%;
-    background-position: 51% center;
-    animation: shrink 15s infinite alternate;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  @keyframes shrink {
-    0% {
-      background-size: 100% 100%;
-    }
-
-    100% {
-      background-size: 102% 102%;
-    }
-  }
+  height: 85vh;
 
   &__wrapper:after {
     content: '';
@@ -48,23 +16,5 @@
     right: 0;
     bottom: 0;
     background: linear-gradient(to bottom, transparent 60%, $color-dark 100%);
-  }
-}
-
-.main-nav {
-  display: flex;
-  justify-content: center;
-  text-align: center;
-
-  a {
-    color: $color-light;
-    font-size: $base-size * 1.5;
-    text-decoration: none;
-    margin: ($base-size * 4);
-    letter-spacing: 2px;
-
-    &.active {
-      color: $color-white;
-    }
   }
 }

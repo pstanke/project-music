@@ -23,62 +23,84 @@
   <body>
     <header class="header">
       <div class="header__text">
-        <h1>TASTE</h1>
-        <h2>ENGAGE<br />IN<br />ART</h2>
+        <h1 class="element">Taste</h1>
+        <h2 class="element">Engage</h2>
+        <h2 class="element">In</h2>
+        <h2 class="element">Art</h2>
       </div>
       <div class="header__wrapper"></div>
     </header>
 
     <div class="main-nav">
-      <a href="#home">HOME</a>
-      <a href="#search">SEARCH</a>
-      <a href="#discover">DISCOVER</a>
+      <a href="#home" class="element">Home</a>
+      <a href="#search" class="element">Search</a>
+      <a href="#discover" class="element">Discover</a>
     </div>
 
     <div id="pages">
       <section id="home">
-        <div class="home-wrapper container"></div>
+        <div class="home-wrapper"></div>
       </section>
       <section id="search">
-        <div class="search-wrapper container"></div>
+        <div class="search-wrapper"></div>
       </section>
       <section id="discover">
-        <div class="discover-wrapper container"></div>
+        <div class="discover-wrapper"></div>
       </section>
     </div>
 
     <script id="template-home" type="text/x-handlebars-template">
-      <div id='song-list' class='song-list container'></div>
+      <div id='song-list' class='song-list'></div>
       <section id='subscribe'>
-        <div id='subscribe__title'>SUBSCRIBE <span>NOW</span></div>
+        <div id='subscribe__title' class='element'>Subscribe
+          <span>Now</span>
+        </div>
         <div id='subscribe__artist'>
-          <img src='images/artist.jpg' />
-          <div class='new'>NEW ALBUM</div>
-          <div class='only'>Avaliable only for subscribers</div>
           <div class='name'>Dean</div>
           <div class='surname'>Hen<span>son</span></div>
+          <div class='album element'>New Album</div>
+          <div class='only'>Available only for subscribers</div>
         </div>
 
-        <div><a class='btn' id='subscribe__now' href='#join'>JOIN NOW</a></div>
+        <div><a class='btn element' id='subscribe__now' href='#join'>Join Now</a></div>
       </section>
     </script>
-    <script id="template-search" type="text/x-handlebars-template"></script>
+    <script id="template-search" type="text/x-handlebars-template">
+      <h3 class='element'>Search</h3>
+      <div class='find'>
+        <div class='find__box'>
+          <p>Name</p>
+        </div>
+        <div class='find__box'>
+          <input type='search' id='search' placeholder='search...' />
+        </div>
+        <div class='find__box'>
+          <button id='check' class='check-results btn element'>Search</button>
+        </div>
+
+      </div>
+      <h4 class='results-box'></h4>
+      <div class='results-songs'></div>
+    </script>
     <script id="template-discover" type="text/x-handlebars-template">
-      <div id='song-list' class='song-list container'></div>
+      <h3 class='element'>Discover</h3>
+      <h4>Give it a try!</h4>
     </script>
     <script id="template-menu-song" type="text/x-handlebars-template">
-      <article class='song'>
-        <h4 class='song__title'>{{title}}</h4>
-        <div id='song-{{id}}' class='player'>
-          <audio>
-            <source src='../vendor/songs/{{filename}}' />
-          </audio>
-        </div>
-        <div class='song__info'>
-          <div class='song__categories'>Categories: {{categories}} </div>
-          <div class='song__ranking'>#{{ranking}} in the ranking</div>
-        </div>
-      </article>
+      <div class='container'>
+        <article class='song'>
+          <h4 class='song__title'>{{author}} - {{title}}</h4>
+          <div id='song-{{id}}' class='player'>
+            <audio>
+              <source src='../vendor/songs/{{filename}}' />
+            </audio>
+          </div>
+          <div class='song__info'>
+            <div class='song__categories'>Categories: {{categories}} </div>
+            <div class='song__ranking'>#{{ranking}} in the ranking</div>
+          </div>
+        </article>
+      </div>
     </script>
     <footer>All rights reserved</footer>
     <script src="https://cdn.jsdelivr.net/gh/greghub/green-audio-player/dist/js/green-audio-player.min.js"></script>

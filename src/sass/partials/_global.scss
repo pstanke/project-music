@@ -25,18 +25,56 @@ body {
 }
 
 .btn {
-  display: inline-block;
   border-radius: $radius * 2;
   background-color: $color-first;
   border: none;
   color: $color-white;
-  text-align: center;
+
   font-size: $base-size * 1.6;
   padding: $base-size * 1.8;
   letter-spacing: $base-size * 0.5;
   font-weight: bolder;
-
   cursor: pointer;
-
   text-decoration: none;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.find {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: $base-size * 4;
+
+  &__box {
+    margin: $base-size * 0.5;
+  }
+
+  p {
+    font-size: $base-size;
+    letter-spacing: 2px;
+  }
+}
+
+.main-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: $base-size * 3 0;
+
+  a {
+    margin-left: $base-size * 3.5;
+    margin-right: $base-size * 3.5;
+    color: $color-light;
+    font-size: $base-size * 1.5;
+    text-decoration: none;
+    letter-spacing: 2px;
+
+    &.active {
+      color: $color-white;
+    }
+  }
 }

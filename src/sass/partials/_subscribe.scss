@@ -1,9 +1,10 @@
 #subscribe {
   position: relative;
-  height: 700px;
+  height: 85vh;
   background-image: url(../images/subscribe.jpg);
   background-size: 100% 100%;
   background-position: center center;
+  margin-top: $base-size * 8;
 
   &__title {
     position: absolute;
@@ -14,6 +15,7 @@
     font-size: $base-size * 5.2;
     letter-spacing: $base-size;
     font-weight: $font-light;
+    white-space: nowrap;
 
     span {
       font-weight: bold;
@@ -21,67 +23,64 @@
   }
 
   &__artist {
-    img {
-      position: absolute;
-      top: 40%;
-      left: 50%;
-      transform: translateY(-50%);
-      width: 350px;
-    }
-
-    .new {
-      position: absolute;
-      top: 75%;
-      left: 76%;
-      transform: translate(-50%, -50%);
-      font-size: $base-size * 2;
-      color: $color-white;
-      letter-spacing: $base-size * 0.5;
-      font-weight: $font-bold;
-    }
-
-    .only {
-      position: absolute;
-      top: 80%;
-      left: 67%;
-      transform: translate(-50%, -50%);
-      font-size: $base-size * 2;
-      color: $color-white;
-      letter-spacing: $base-size * 0.5;
-      font-weight: $font-bold;
-    }
+    background-image: url(../images/artist.jpg);
+    background-size: 100% 100%;
+    background-position: center center;
+    position: relative;
+    height: 400px;
+    max-width: 320px;
+    left: 56%;
+    top: 17%;
 
     .name {
+      position: absolute;
       color: $color-white;
       font-size: $base-size * 4.5;
       letter-spacing: $base-size;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translateY(-50%);
+      top: 60%;
+      left: -25%;
+      transform: translate(-50%, -50%);
       font-weight: $font-bold;
     }
 
     .surname {
+      position: absolute;
       color: $color-white;
       font-size: $base-size * 4.5;
       letter-spacing: $base-size;
-      position: absolute;
-      top: 60%;
-      left: 57%;
-      transform: translateY(-50%);
-      font-weight: $font-bold;
+      top: 75%;
+      transform: translate(-50%, -50%);
+      font-weight: $font-bolder;
 
       span {
         color: $color-first;
       }
     }
+
+    .album {
+      position: absolute;
+      font-size: $base-size * 2;
+      letter-spacing: $base-size;
+      font-weight: bold;
+      top: 105%;
+      right: -10%;
+    }
+
+    .only {
+      white-space: nowrap;
+      position: absolute;
+      font-size: $base-size * 2;
+      letter-spacing: $base-size * 0.5;
+      color: $color-white;
+      top: 115%;
+      left: -40%;
+    }
   }
 
   &__now {
     position: absolute;
-    top: 58%;
-    left: 28%;
+    top: 56%;
+    left: 26%;
     transform: translate(-50%, -50%);
   }
 }

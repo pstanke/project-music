@@ -12,16 +12,20 @@ export const select = {
     discover: '.discover-wrapper',
     menu: '#song-list',
   },
+  results: {
+    songs: '.results-songs',
+    box: '.results-box',
+  },
   nav: {
     links: '.main-nav a',
   },
-  gap: {
-    player: '.player',
+  search: {
+    button: '#check',
+    input: '#search',
   },
-
-  // all: {
-  //   menuProducts: '#song-list > .song',
-  // },
+  elem: {
+    elements: '.element',
+  },
 };
 
 export const classNames = {
@@ -30,6 +34,9 @@ export const classNames = {
   },
   pages: {
     active: 'active',
+  },
+  notVisible: {
+    notVisible: 'not-visible',
   },
 };
 

@@ -8,21 +8,21 @@ const app = {
     const thisApp = this;
 
     const homeElem = document.querySelector(select.containerOf.home);
-    // console.log('homeElem', homeElem);
+
     thisApp.home = new Home(homeElem);
   },
   initSearch: function () {
     const thisApp = this;
 
     const searchElem = document.querySelector(select.containerOf.search);
-    // console.log('searchElem', searchElem);
+
     thisApp.search = new Search(searchElem);
   },
   initDiscover: function () {
     const thisApp = this;
 
     const discoverElem = document.querySelector(select.containerOf.discover);
-    // console.log('discoverElem', discoverElem);
+
     thisApp.discover = new Discover(discoverElem);
   },
 
@@ -43,7 +43,6 @@ const app = {
         break;
       }
     }
-
     thisApp.activatePage(pageMachingHash);
 
     for (let link of thisApp.navLinks) {
@@ -80,7 +79,6 @@ const app = {
   },
   initMenu: function () {
     const thisApp = this;
-    // console.log('thisApp.data:', thisApp.data);
 
     for (let songData in thisApp.data.songs) {
       new Song(thisApp.data.songs[songData].id, thisApp.data.songs[songData]);
@@ -97,13 +95,18 @@ const app = {
         return rawResponse.json();
       })
       .then(function (parsedResponse) {
-        // console.log('parsedResponse:', parsedResponse);
         /* save parsedResponse as thisApp.data.songs*/
         thisApp.data.songs = parsedResponse;
         /* execute initMenu method*/
         thisApp.initMenu();
       });
-    // console.log('thisApp.data', JSON.stringify(thisApp.data));
+  },
+  formatElem: function () {
+    const elements = document.querySelectorAll(select.elem.elements);
+
+    for (let element of elements) {
+      element.innerHTML = element.innerHTML.toUpperCase();
+    }
   },
 
   init: function () {
@@ -118,6 +121,8 @@ const app = {
     thisApp.initSearch();
 
     thisApp.initDiscover();
+
+    thisApp.formatElem();
   },
 };
 

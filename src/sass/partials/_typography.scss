@@ -1,20 +1,48 @@
 h1 {
+  display: flex;
+  justify-content: center;
   color: $color-white;
-  font-size: $base-size * 11;
-  letter-spacing: $base-size * 5.5;
-  margin: 0;
+  font-size: $base-size * 12;
+  letter-spacing: $base-size * 4.5;
+  margin: 0 0 0 28px;
   font-weight: bold;
 }
 
 h2 {
+  margin: 0 20px 0 0;
+  display: flex;
+  justify-content: center;
   color: $color-white;
   font-size: $base-size * 2;
-  margin: 0;
-  letter-spacing: $base-size * 0.8;
+  letter-spacing: $base-size;
 }
 
-.gap-progress {
-  background-color: $color-first;
+h3 {
+  display: flex;
+  justify-content: center;
+  font-size: $base-size * 3;
+  letter-spacing: 6px;
+}
+
+h4 {
+  display: flex;
+  justify-content: center;
+  color: $color-white;
+  font-size: $base-size * 1.5;
+  letter-spacing: 2px;
+}
+
+#check {
+  padding: 6px;
+  font-size: $base-size;
+  font-weight: 100;
+  letter-spacing: 2px;
+}
+
+#search {
+  padding: 6px;
+  border-radius: $radius * 2;
+  border: none;
 }
 
 footer {
