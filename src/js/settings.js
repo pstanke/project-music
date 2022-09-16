@@ -12,6 +12,7 @@ export const select = {
     discover: '.discover-wrapper',
     menu: '#song-list',
   },
+
   results: {
     songs: '.results-songs',
     box: '.results-box',
@@ -34,9 +35,6 @@ export const classNames = {
   },
   pages: {
     active: 'active',
-  },
-  notVisible: {
-    notVisible: 'not-visible',
   },
 };
 

@@ -1,8 +1,8 @@
-import { select, classNames, settings } from './settings.js';
+import { select, classNames } from './settings.js';
 import Home from './components/Home.js';
 import Search from './components/Search.js';
 import Discover from './components/Discover.js';
-import Song from './components/song.js';
+// import Song from './components/song.js';
 const app = {
   initHome: function () {
     const thisApp = this;
@@ -77,30 +77,30 @@ const app = {
       );
     }
   },
-  initMenu: function () {
-    const thisApp = this;
+  // initMenu: function () {
+  //   const thisApp = this;
 
-    for (let songData in thisApp.data.songs) {
-      new Song(thisApp.data.songs[songData].id, thisApp.data.songs[songData]);
-    }
-  },
+  //   for (let songData in thisApp.data.songs) {
+  //     new Song(thisApp.data.songs[songData].id, thisApp.data.songs[songData]);
+  //   }
+  // },
 
-  initData: function () {
-    const thisApp = this;
+  // initData: function () {
+  //   const thisApp = this;
 
-    thisApp.data = {};
-    const url = settings.db.url + '/' + settings.db.songs;
-    fetch(url)
-      .then(function (rawResponse) {
-        return rawResponse.json();
-      })
-      .then(function (parsedResponse) {
-        /* save parsedResponse as thisApp.data.songs*/
-        thisApp.data.songs = parsedResponse;
-        /* execute initMenu method*/
-        thisApp.initMenu();
-      });
-  },
+  //   thisApp.data = {};
+  //   const url = settings.db.url + '/' + settings.db.songs;
+  //   fetch(url)
+  //     .then(function (rawResponse) {
+  //       return rawResponse.json();
+  //     })
+  //     .then(function (parsedResponse) {
+  //       /* save parsedResponse as thisApp.data.songs*/
+  //       thisApp.data.songs = parsedResponse;
+  //       /* execute initMenu method*/
+  //       thisApp.initMenu();
+  //     });
+  // },
   formatElem: function () {
     const elements = document.querySelectorAll(select.elem.elements);
 
@@ -114,7 +114,7 @@ const app = {
 
     thisApp.initPages();
 
-    thisApp.initData();
+    // thisApp.initData();
 
     thisApp.initHome();
 

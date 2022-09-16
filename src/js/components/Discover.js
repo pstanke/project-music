@@ -1,7 +1,9 @@
-import { templates, settings, select } from '../settings.js';
-import utils from '../utils.js';
-class Discover {
+import { templates, select } from '../settings.js';
+// import utils from '../utils.js';
+import Songs from './songs.js';
+class Discover extends Songs {
   constructor(element) {
+    super();
     const thisDiscover = this;
 
     thisDiscover.render(element);
@@ -27,38 +29,36 @@ class Discover {
       select.containerOf.discover
     );
   }
+
   getRandomSong() {
     const thisDiscover = this;
-    const url = settings.db.url + '/' + settings.db.songs;
-    fetch(url)
-      .then(function (rawResponse) {
-        return rawResponse.json();
-      })
-      .then(function (parsedResponse) {
-        thisDiscover.item =
-          parsedResponse[Math.floor(Math.random() * parsedResponse.length)];
-        thisDiscover.renderSong();
-      });
+
+    console.log(thisDiscover.data);
+    thisDiscover.item =
+      thisDiscover.data[Math.floor(Math.random() * thisDiscover.data.length)];
+    console.log(thisDiscover.item);
+    // thisDiscover.renderSong();
   }
-  renderSong() {
-    const thisDiscover = this;
-    const item = thisDiscover.item;
 
-    const generatedHTML = templates.menuSong({
-      ...item,
-      id: 'discover-' + item.id,
-    });
+  // renderSong() {
+  //   const thisDiscover = this;
+  //   const item = thisDiscover.item;
 
-    thisDiscover.element = utils.createDOMFromHTML(generatedHTML);
+  //   const generatedHTML = templates.menuSong({
+  //     ...item,
+  //     id: 'discover-' + item.data,
+  //   });
 
-    thisDiscover.discoverContainer.appendChild(thisDiscover.element);
+  //   thisDiscover.element = utils.createDOMFromHTML(generatedHTML);
 
-    // eslint-disable-next-line no-undef
-    GreenAudioPlayer.init({
-      selector: `#song-discover-${item.id}`,
-      stopOthersOnPlay: true,
-    });
-  }
+  //   thisDiscover.discoverContainer.appendChild(thisDiscover.element);
+
+  //   // eslint-disable-next-line no-undef
+  //   GreenAudioPlayer.init({
+  //     selector: `#song-discover-${item.data}`,
+  //     stopOthersOnPlay: true,
+  //   });
+  // }
 }
 
 export default Discover;

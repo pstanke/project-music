@@ -105,11 +105,9 @@ class Search {
         return rawResponse.json();
       })
       .then(function (parsedResponse) {
-        const data = parsedResponse;
-
         let value = thisSearch.search.value.toLowerCase();
 
-        for (let song of data) {
+        for (let song of parsedResponse) {
           if (song.title.toLowerCase().includes(value)) {
             thisSearch.matchingSongs.push(song);
           }
