@@ -1,9 +1,13 @@
-import { select, templates, settings } from '../settings.js';
+import { select, templates } from '../settings.js';
 import utils from '../utils.js';
+import AudioPlayer from './AudioPlayer.js';
 class Search {
-  constructor(element) {
+  constructor(data, element) {
     const thisSearch = this;
+    thisSearch.songs = data;
+
     thisSearch.matchingSongs = [];
+
     thisSearch.render(element);
     thisSearch.getElements();
     thisSearch.initActions();
@@ -11,7 +15,6 @@ class Search {
   render(element) {
     const thisSearch = this;
     thisSearch.element = element;
-
     thisSearch.dom = {
       wrapper: thisSearch.element,
     };
@@ -23,16 +26,16 @@ class Search {
   getElements() {
     const thisSearch = this;
     thisSearch.check = thisSearch.dom.wrapper.querySelector(
-      select.search.button
+      select.search.searcher.button
     );
     thisSearch.search = thisSearch.dom.wrapper.querySelector(
-      select.search.input
+      select.search.searcher.input
     );
     thisSearch.resultsSongs = thisSearch.dom.wrapper.querySelector(
-      select.results.songs
+      select.search.results.songs
     );
     thisSearch.resultsBox = thisSearch.dom.wrapper.querySelector(
-      select.results.box
+      select.search.results.box
     );
   }
 
@@ -71,7 +74,7 @@ class Search {
         for (let song of thisSearch.matchingSongs) {
           const generatedHTML = templates.menuSong({
             ...song,
-            id: 'search-' + song.id,
+            id: `${select.song.search}-${song.id}`,
           });
 
           thisSearch.element = utils.createDOMFromHTML(generatedHTML);
@@ -80,12 +83,9 @@ class Search {
             'beforeEnd',
             thisSearch.element
           );
-
-          // eslint-disable-next-line no-undef
-          GreenAudioPlayer.init({
-            selector: `#song-search-${song.id}`,
-            stopOthersOnPlay: true,
-          });
+          new AudioPlayer(
+            `${select.song.prefix}-${select.song.search}-${song.id}`
+          );
         }
       } else {
         thisSearch.resultsSongs.innerHTML = '';
@@ -99,22 +99,16 @@ class Search {
   }
   searcher() {
     const thisSearch = this;
-    const url = settings.db.url + '/' + settings.db.songs;
-    fetch(url)
-      .then(function (rawResponse) {
-        return rawResponse.json();
-      })
-      .then(function (parsedResponse) {
-        let value = thisSearch.search.value.toLowerCase();
 
-        for (let song of parsedResponse) {
-          if (song.title.toLowerCase().includes(value)) {
-            thisSearch.matchingSongs.push(song);
-          }
-        }
+    let value = thisSearch.search.value.toLowerCase();
 
-        thisSearch.updateDom();
-      });
+    for (let song of thisSearch.songs) {
+      if (song.title.toLowerCase().includes(value)) {
+        thisSearch.matchingSongs.push(song);
+      }
+    }
+
+    thisSearch.updateDom();
   }
 }
 export default Search;

@@ -34,7 +34,7 @@
     <div class="main-nav">
       <a href="#home" class="element">Home</a>
       <a href="#search" class="element">Search</a>
-      <a href="#discover" class="element">Discover</a>
+      <a href="#discover" class="element discover">Discover</a>
     </div>
 
     <div id="pages">
@@ -50,7 +50,8 @@
     </div>
 
     <script id="template-home" type="text/x-handlebars-template">
-      <div id='song-list' class='song-list'></div>
+      <h6 class='categories'>Categories:</h6>
+      <div class='song-list'></div>
       <section id='subscribe'>
         <div id='subscribe__title' class='element'>Subscribe
           <span>Now</span>
@@ -80,11 +81,12 @@
 
       </div>
       <h4 class='results-box'></h4>
-      <div class='results-songs'></div>
+      <div class='results-songs section-container'></div>
     </script>
     <script id="template-discover" type="text/x-handlebars-template">
       <h3 class='element'>Discover</h3>
       <h4>Give it a try!</h4>
+      <div class='section-container'></div>
     </script>
     <script id="template-menu-song" type="text/x-handlebars-template">
       <div class='container'>

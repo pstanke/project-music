@@ -32,6 +32,30 @@ h4 {
   letter-spacing: 2px;
 }
 
+h6 {
+  display: flex;
+  color: $color-white;
+  font-size: 14px;
+  letter-spacing: 1px;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin: 0 $base-size * 2;
+  font-weight: 100;
+}
+
+.category-selector {
+  text-decoration: none;
+  margin: 0 2px;
+
+  color: $color-white;
+
+  &.active {
+    color: $color-first;
+    font-weight: bold;
+  }
+}
+
 #check {
   padding: 6px;
   font-size: $base-size;
@@ -43,6 +67,9 @@ h4 {
   padding: 6px;
   border-radius: $radius * 2;
   border: none;
+}
+.element {
+  text-transform: uppercase;
 }
 
 footer {

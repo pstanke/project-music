@@ -1,19 +1,21 @@
-import { templates, select } from '../settings.js';
-// import utils from '../utils.js';
-import Songs from './songs.js';
-class Discover extends Songs {
-  constructor(element) {
-    super();
+import { templates, select, classNames } from '../settings.js';
+import utils from '../utils.js';
+import AudioPlayer from './AudioPlayer.js';
+
+class Discover {
+  constructor(data, element) {
     const thisDiscover = this;
+    thisDiscover.songs = data;
 
     thisDiscover.render(element);
     thisDiscover.getElements();
+    thisDiscover.initActions();
     thisDiscover.getRandomSong();
   }
+
   render(element) {
     const thisDiscover = this;
     thisDiscover.element = element;
-
     thisDiscover.dom = {
       wrapper: thisDiscover.element,
     };
@@ -28,37 +30,46 @@ class Discover extends Songs {
     thisDiscover.discoverContainer = document.querySelector(
       select.containerOf.discover
     );
+    thisDiscover.sectionContainer = document.querySelector(
+      select.discover.section
+    );
+    thisDiscover.navLink = document.querySelector(select.discover.navLink);
+  }
+
+  initActions() {
+    const thisDiscover = this;
+    thisDiscover.navLink.addEventListener('click', function (event) {
+      event.preventDefault();
+      if (!event.target.classList.contains(classNames.nav.active)) {
+        thisDiscover.sectionContainer.innerHTML = '';
+        thisDiscover.getRandomSong();
+      }
+    });
   }
 
   getRandomSong() {
     const thisDiscover = this;
 
-    console.log(thisDiscover.data);
     thisDiscover.item =
-      thisDiscover.data[Math.floor(Math.random() * thisDiscover.data.length)];
-    console.log(thisDiscover.item);
-    // thisDiscover.renderSong();
+      thisDiscover.songs[Math.floor(Math.random() * thisDiscover.songs.length)];
+    thisDiscover.renderSong();
   }
 
-  // renderSong() {
-  //   const thisDiscover = this;
-  //   const item = thisDiscover.item;
+  renderSong() {
+    const thisDiscover = this;
+    const item = thisDiscover.item;
 
-  //   const generatedHTML = templates.menuSong({
-  //     ...item,
-  //     id: 'discover-' + item.data,
-  //   });
+    const generatedHTML = templates.menuSong({
+      ...item,
+      id: `${select.song.discover}-${item.id}`,
+    });
 
-  //   thisDiscover.element = utils.createDOMFromHTML(generatedHTML);
+    thisDiscover.element = utils.createDOMFromHTML(generatedHTML);
 
-  //   thisDiscover.discoverContainer.appendChild(thisDiscover.element);
+    thisDiscover.sectionContainer.appendChild(thisDiscover.element);
 
-  //   // eslint-disable-next-line no-undef
-  //   GreenAudioPlayer.init({
-  //     selector: `#song-discover-${item.data}`,
-  //     stopOthersOnPlay: true,
-  //   });
-  // }
+    new AudioPlayer(`${select.song.prefix}-${select.song.discover}-${item.id}`);
+  }
 }
 
 export default Discover;

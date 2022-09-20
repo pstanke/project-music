@@ -10,22 +10,37 @@ export const select = {
     home: '.home-wrapper',
     search: '.search-wrapper',
     discover: '.discover-wrapper',
-    menu: '#song-list',
-  },
-
-  results: {
-    songs: '.results-songs',
-    box: '.results-box',
   },
   nav: {
     links: '.main-nav a',
   },
-  search: {
-    button: '#check',
-    input: '#search',
+  elements: {
+    UpperCase: '.element',
   },
-  elem: {
-    elements: '.element',
+  search: {
+    results: {
+      songs: '.results-songs',
+      box: '.results-box',
+    },
+    searcher: {
+      button: '#check',
+      input: '#search',
+    },
+  },
+  home: {
+    categories: '.categories',
+    categorySelector: '.category-selector',
+    list: '.song-list',
+  },
+  discover: {
+    navLink: '.discover',
+    section: '.section-container',
+  },
+  song: {
+    prefix: '#song',
+    home: 'home',
+    search: 'search',
+    discover: 'discover',
   },
 };
 
@@ -35,6 +50,10 @@ export const classNames = {
   },
   pages: {
     active: 'active',
+  },
+  home: {
+    categorySelector: 'category-selector',
+    activeCategory: 'active',
   },
 };
 

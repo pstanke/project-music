@@ -43,6 +43,10 @@ body {
   justify-content: center;
 }
 
+.section-container {
+  min-height: $base-size * 40;
+}
+
 .find {
   display: flex;
   justify-content: center;
@@ -63,7 +67,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: $base-size * 3 0;
+  margin: $base-size * 2 0;
 
   a {
     margin-left: $base-size * 3.5;
